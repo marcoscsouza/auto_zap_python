@@ -7,10 +7,6 @@
 # readme = "README.md"
 # python_version = "3.12"
 
-# Example values!
-# IdGroup = "H8uW35Yat3v75OHtlc7MM8"
-# Contact = "+5521982017908"
-
 import os
 import subprocess
 import sys
@@ -19,9 +15,6 @@ import pywhatkit
 
 import time
 from datetime import datetime
-
-# pip install pyinstaller
-# pyinstaller --noconfirm --onefile seu_programa.py
 
 # Instala automaticamente as dependências
 required_packages = ["pyautogui", "pywhatkit"]
