@@ -12,12 +12,13 @@ import subprocess
 import sys
 import pyautogui
 import pywhatkit
+import pywin32
 
 import time
 from datetime import datetime
 
 # Instala automaticamente as dependências
-required_packages = ["pyautogui", "pywhatkit"]
+required_packages = ["pyautogui", "pywhatkit", "pywin32"]
 for package in required_packages:
     try:
         __import__(package)
@@ -64,23 +65,15 @@ while True:
     img_caption = f"BMS: {datetime.now().strftime("%H:%M")}"
 
     pywhatkit.sendwhats_image(contact, screenshot_path, img_caption)
-    
-    # Tempo para garantir que o WhatsApp Web foi carregado
-    print("Aguardando o envio da imagem...")
     time.sleep(15)  
-
-    print("Fechando a janela do WhatsApp Web e Voltando para a tela anterior...")
     pyautogui.hotkey("ctrl", "w")
-    time.sleep(3)  
+    time.sleep(15)  
     pyautogui.hotkey("alt", "tab")
-
+    time.sleep(15)  
     # Apaga o arquivo após criar
     if os.path.exists(screenshot_path):
         os.remove(screenshot_path)
-        print(f"O arquivo {screenshot_filename} foi apagado com sucesso.")
     else:
         print(f"O arquivo {screenshot_filename} não foi encontrado para exclusão.")
 
-    # Aguarda 1 hora antes de repetir o processo
-    print("Aguardando 1 hora para a próxima captura...")
-    time.sleep(15)  # 3600 segundos = 1 hora
+    time.sleep(3515)  # 3600 segundos = 1 hora
